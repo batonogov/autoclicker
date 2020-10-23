@@ -1,7 +1,6 @@
 import pyautogui
 import os
 import time
-import sys
 
 
 # Получаем разрешение экрана
