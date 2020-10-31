@@ -3,18 +3,27 @@ import os
 import time
 
 
+# Полное инфо об ОС 
+your_os = os.uname()
+print('Ваша ОС:', your_os[0])
+
 # Получаем разрешение экрана
 screen = pyautogui.size()
 print('Экран:', screen)
 
-# Запускаем браузер с необходимой страницей
-run = '"start /max /b cmd /c ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
-os.system(run)
-print('Запустил комманду:', run)
+def start_chrome_mac():
+    # Запускаем браузер с необходимой страницей
+    run = 'open -a "Safari" "https://www.youtube.com/watch?v=8T9SFZDP60Q"'
+    os.system(run)
+    # time.sleep(5)
+    # pyautogui.hotkey('ctrl', 'win', 'f')
+    print('Запустил:', run)
 
-# Ждем прогрузки браузера
-delay = 60
-time.sleep(delay)
+def start_chrome_win():
+    # Запускаем браузер с необходимой страницей
+    run = '"start /max /b cmd /c ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
+    os.system(run)
+    print('Запустил:', run)
 
 # # Закрываем всплывающее окно восстановления
 # print('Ищу крестик')
@@ -44,21 +53,29 @@ time.sleep(delay)
 #         pyautogui.moveTo (premium, duration = 0)
 #         pyautogui.click(button='left', clicks=1, interval=0.0)
 
-# Передвигаем курсор в нужное место
-x1, y1 = screen[0] / 4, screen[1] / 4
-pyautogui.moveTo (x1, y1, duration = 0)
-print('Передвинул курсор:', x1, y1)
+def click():
+    # Передвигаем курсор в нужное место
+    x1, y1 = screen[0] / 4, screen[1] / 4
+    pyautogui.moveTo (x1, y1, duration = 0)
+    print('Передвинул курсор:', x1, y1)
 
-# Двойной клик для полноэкранного режима
-pyautogui.click(button='left', clicks=2, interval=0.0)
-print('Дважды кликнул')
+    # Двойной клик для полноэкранного режима
+    pyautogui.click(button='left', clicks=2, interval=0.0)
+    print('Дважды кликнул')
 
-# Прибавляем громкость в системе
-pyautogui.press('volumeup', presses=50) 
-# И в ютубе
-pyautogui.press('up', presses=20)
+    # Прибавляем громкость в системе
+    pyautogui.press('volumeup', presses=50) 
+    # И в ютубе
+    pyautogui.press('up', presses=20)
 
 # # Убиваю хром
 # print('Убиваю хром')
 # # time.sleep(10)
 # os.system('taskkill /F /IM chrome.exe /T')
+
+if your_os[0] == "Darwin":
+    # Запускаем браузер
+    start_chrome_mac()
+elif your_os[0] == "win32":
+    # Запускаем браузер
+    start_chrome_win()
