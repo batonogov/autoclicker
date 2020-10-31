@@ -1,11 +1,12 @@
 import pyautogui
 import os
 import time
+import sys
 
 
 # Полное инфо об ОС 
-your_os = os.uname()
-print('Ваша ОС:', your_os[0])
+your_os = sys.platform
+print('Ваша ОС:', your_os)
 
 # Получаем разрешение экрана
 screen = pyautogui.size()
@@ -73,9 +74,11 @@ def click():
 # # time.sleep(10)
 # os.system('taskkill /F /IM chrome.exe /T')
 
-if your_os[0] == "Darwin":
+if your_os == "Darwin":
     # Запускаем браузер
     start_chrome_mac()
-elif your_os[0] == "win32":
+elif your_os == "win32":
     # Запускаем браузер
     start_chrome_win()
+    time.sleep(10)
+    click()
