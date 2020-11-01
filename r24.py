@@ -12,7 +12,7 @@ print('Ваша ОС:', your_os)
 screen = pyautogui.size()
 print('Экран:', screen)
 
-def start_chrome_mac():
+def start_mac():
     # Запускаем браузер с необходимой страницей
     run = 'open -a "Safari" "https://www.youtube.com/watch?v=8T9SFZDP60Q"'
     os.system(run)
@@ -20,7 +20,7 @@ def start_chrome_mac():
     # pyautogui.hotkey('ctrl', 'win', 'f')
     print('Запустил:', run)
 
-def start_chrome_win():
+def start_win():
     # Запускаем браузер с необходимой страницей
     run = '"start /max /b cmd /c ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
     os.system(run)
@@ -69,16 +69,13 @@ def click():
     # И в ютубе
     pyautogui.press('up', presses=20)
 
-# # Убиваю хром
-# print('Убиваю хром')
-# # time.sleep(10)
-# os.system('taskkill /F /IM chrome.exe /T')
-
-if your_os == "Darwin":
+if your_os == "darwin":
     # Запускаем браузер
-    start_chrome_mac()
+    start_mac()
+    time.sleep(10)
+    click()
 elif your_os == "win32":
     # Запускаем браузер
-    start_chrome_win()
-    time.sleep(10)
+    start_win()
+    time.sleep(60)
     click()
