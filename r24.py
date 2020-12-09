@@ -23,7 +23,7 @@ def start_mac():
 def start_win():
     # Запускаем браузер с необходимой страницей
     # run = '"start /max /b cmd /c ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
-    run = '"start /max /b cmd /c "FirefoxPortable/FirefoxPortable.exe -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
+    run = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
     os.system(run)
     print('Запустил:', run)
 
