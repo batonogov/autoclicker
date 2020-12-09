@@ -76,7 +76,7 @@ if your_os == "darwin":
     time.sleep(10)
     click()
 elif your_os == "win32":
-    time.sleep(60)
+    time.sleep(30)
     # Запускаем браузер
     start_win()
     time.sleep(90)
