@@ -1,7 +1,4 @@
-import pyautogui
-import os
-import time
-import sys
+import pyautogui, os, time, sys
 
 
 # Полное инфо об ОС 
@@ -12,20 +9,28 @@ print('Ваша ОС:', your_os)
 screen = pyautogui.size()
 print('Экран:', screen)
 
-def start_mac():
-    # Запускаем браузер с необходимой страницей
-    run = 'open -a "Safari" "https://www.youtube.com/watch?v=8T9SFZDP60Q"'
-    os.system(run)
-    # time.sleep(5)
-    # pyautogui.hotkey('ctrl', 'win', 'f')
-    print('Запустил:', run)
+class start:
+    'Нужна ссылка которую будем открывать'
+    def __init__(self, link):
+        self.link = link
 
-def start_win():
-    # Запускаем браузер с необходимой страницей
-    # run = '"start /max /b cmd /c ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
-    run = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk https://www.youtube.com/watch?v=8T9SFZDP60Q""'
-    os.system(run)
-    print('Запустил:', run)
+    def mac(self):
+        'Открою ссылку в Safari'
+        # Запускаем браузер с переданной ссылкой
+        run = 'open -a "Safari" %s' % self.link
+        os.system(run)
+        # time.sleep(5)
+        # pyautogui.hotkey('ctrl', 'win', 'f')
+        print('Запустил:', run)
+
+    def win(self):
+        'Открою ссылку в Firefox Portable'
+        # Запускаем браузер с переданной ссылкой
+        run = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
+        if os.system(run) != True:
+            run = 'start /max /b %s' % self.link
+            os.system(run)
+        print('Запустил:', run)
 
 # # Закрываем всплывающее окно восстановления
 # print('Ищу крестик')
@@ -71,13 +76,17 @@ def click():
     pyautogui.press('up', presses=20)
 
 if your_os == "darwin":
+    # Передаем ссылку
+    run = start('https://www.youtube.com/watch?v=8T9SFZDP60Q')
     # Запускаем браузер
-    start_mac()
+    run.mac()
     time.sleep(10)
     click()
 elif your_os == "win32":
     time.sleep(30)
+    # Передаем ссылку
+    run = start('https://www.youtube.com/watch?v=8T9SFZDP60Q')
     # Запускаем браузер
-    start_win()
+    run.win()
     time.sleep(90)
     click()
