@@ -15,7 +15,7 @@ class start:
         self.link = link
 
     def mac(self):
-        'Открою ссылку в Safari'
+        'Открою ссылку в браузере'
         # Запускаем браузер с переданной ссылкой
         command = 'open %s' % self.link
         os.system(command)
@@ -24,15 +24,16 @@ class start:
         print('Запустил:', command)
 
     def win(self):
-        'Открою ссылку в Firefox Portable'
+        'Открою ссылку в брвузере'
         # Запускаем браузер с переданной ссылкой
         command = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
         run = os.system(command)
-        if run == True:
-            pass
-        else:
-            command = '"start /max /b %s""' % self.link
-            run = os.system(command)
+        print(run == True)
+        # if run == True:
+        #     pass
+        # else:
+        #     command = '"start /max /b %s""' % self.link
+        #     run = os.system(command)
         print('Запустил:', command)
 
 # # Закрываем всплывающее окно восстановления
