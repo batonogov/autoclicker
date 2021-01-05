@@ -28,12 +28,9 @@ class start:
         # Запускаем браузер с переданной ссылкой
         command = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
         run = os.system(command)
-        print(run == True)
-        # if run == True:
-        #     pass
-        # else:
-        #     command = '"start /max /b %s""' % self.link
-        #     run = os.system(command)
+        if run == True:
+            command = '"start /max /b %s""' % self.link
+            run = os.system(command)
         print('Запустил:', command)
 
 # # Закрываем всплывающее окно восстановления
