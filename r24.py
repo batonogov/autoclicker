@@ -17,22 +17,23 @@ class start:
     def mac(self):
         'Открою ссылку в Safari'
         # Запускаем браузер с переданной ссылкой
-        run = 'open %s' % self.link
-        os.system(run)
+        command = 'open %s' % self.link
+        os.system(command)
         # time.sleep(5)
         # pyautogui.hotkey('ctrl', 'win', 'f')
-        print('Запустил:', run)
+        print('Запустил:', command)
 
     def win(self):
         'Открою ссылку в Firefox Portable'
         # Запускаем браузер с переданной ссылкой
-        run = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
-        if os.system(run) == True:
+        command = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
+        run = os.system(command)
+        if run == True:
             pass
         else:
-            run = 'start /max /b %s' % self.link
-            os.system(run)
-        print('Запустил:', run)
+            command = '"start /max /b %s""' % self.link
+            run = os.system(command)
+        print('Запустил:', command)
 
 # # Закрываем всплывающее окно восстановления
 # print('Ищу крестик')
