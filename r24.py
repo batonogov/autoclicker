@@ -25,14 +25,15 @@ class start:
 
     def win(self):
         'Открою ссылку в брвузере'
-        # Запускаем браузер с переданной ссылкой
         FirefoxPortable = 'FirefoxPortable/FirefoxPortable.exe'
+
+        # Запускаем браузер с переданной ссылкой
         if os.path.exists(FirefoxPortable) == True:
             command = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
-            run = os.system(command)
         else:
             command = '"start /max /b %s""' % self.link
-            run = os.system(command)
+
+        os.system(command)
         print('Запустил:', command)
 
 # # Закрываем всплывающее окно восстановления
