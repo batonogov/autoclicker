@@ -26,9 +26,11 @@ class start:
     def win(self):
         'Открою ссылку в брвузере'
         # Запускаем браузер с переданной ссылкой
-        command = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
-        run = os.system(command)
-        if run == True:
+        FirefoxPortable = 'FirefoxPortable/FirefoxPortable.exe'
+        if os.path.exists(FirefoxPortable) == True:
+            command = '"start /max /b cmd /c "FirefoxPortable\FirefoxPortable.exe -kiosk %s""' % self.link
+            run = os.system(command)
+        else:
             command = '"start /max /b %s""' % self.link
             run = os.system(command)
         print('Запустил:', command)
