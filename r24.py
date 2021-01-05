@@ -17,7 +17,7 @@ class start:
     def mac(self):
         'Открою ссылку в Safari'
         # Запускаем браузер с переданной ссылкой
-        run = 'open -a "Safari" %s' % self.link
+        run = 'open %s' % self.link
         os.system(run)
         # time.sleep(5)
         # pyautogui.hotkey('ctrl', 'win', 'f')
@@ -77,16 +77,16 @@ def click():
 
 if your_os == "darwin":
     # Передаем ссылку
-    run = start('https://www.youtube.com/watch?v=8T9SFZDP60Q')
+    link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
     # Запускаем браузер
-    run.mac()
+    start(link).mac()
     time.sleep(10)
     click()
 elif your_os == "win32":
     time.sleep(30)
     # Передаем ссылку
-    run = start('https://www.youtube.com/watch?v=8T9SFZDP60Q')
+    link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
     # Запускаем браузер
-    run.win()
+    start(link).win()
     time.sleep(90)
     click()
