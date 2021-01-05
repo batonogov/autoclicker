@@ -79,17 +79,15 @@ def click():
     # И в ютубе
     pyautogui.press('up', presses=20)
 
+link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
+
 if your_os == "darwin":
-    # Передаем ссылку
-    link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
     # Запускаем браузер
     start(link).mac()
     time.sleep(10)
     click()
 elif your_os == "win32":
     time.sleep(30)
-    # Передаем ссылку
-    link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
     # Запускаем браузер
     start(link).win()
     time.sleep(90)
