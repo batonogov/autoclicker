@@ -1,6 +1,14 @@
 import pyautogui, os, time, sys
 
 
+# Инфо об ОС 
+your_os = sys.platform
+print('Ваша ОС:', your_os)
+
+# Получаем разрешение экрана
+screen = pyautogui.size()
+print('Экран:', screen)
+
 class command:
     'Нужна ссылка которую будем открывать'
     def __init__(self, link):
@@ -8,9 +16,6 @@ class command:
 
     def start(self, latency=30):
         'Сколько секунд подождать перед запуском?'
-        # Инфо об ОС 
-        your_os = sys.platform
-        print('Ваша ОС:', your_os)
 
         print('Жду %s секунд' % latency)
         time.sleep(latency)
@@ -38,10 +43,6 @@ class command:
 
     def click(self, latency=60):
         'Сколько секунд подождать перед запуском?'
-
-        # Получаем разрешение экрана
-        screen = pyautogui.size()
-        print('Экран:', screen)
 
         print('Жду %s секунд' % latency)
         time.sleep(latency)
