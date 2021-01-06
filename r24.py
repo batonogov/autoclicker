@@ -17,13 +17,10 @@ class command:
     def start(self, latency=30):
         'Сколько секунд подождать перед запуском?'
 
-        print('Жду %s секунд' % latency)
-        time.sleep(latency)
-
-        count = 0
-        while count < latency:
-            print(count)
-            count += 1
+        while latency > 0:
+            print('Осталось %s секунд' % latency)
+            latency -= 1
+            time.sleep(1)
 
         if your_os == "darwin":
             # Запускаем браузер с переданной ссылкой
@@ -55,8 +52,10 @@ class command:
     def click(self, latency=60):
         'Сколько секунд подождать перед запуском?'
 
-        print('Жду %s секунд' % latency)
-        time.sleep(latency)
+        while latency > 0:
+            print('Осталось %s секунд' % latency)
+            latency -= 1
+            time.sleep(1)
 
         # Передвигаем курсор в нужное место
         x1, y1 = screen[0] / 4, screen[1] / 4
