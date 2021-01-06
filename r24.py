@@ -20,6 +20,11 @@ class command:
         print('Жду %s секунд' % latency)
         time.sleep(latency)
 
+        count = 0
+        while count < latency:
+            print(count)
+            count += 1
+
         if your_os == "darwin":
             # Запускаем браузер с переданной ссылкой
             command = 'open %s' % self.link
@@ -38,8 +43,14 @@ class command:
             os.system(command)
             print('Запустил:', command)
 
+        elif your_os == 'linux':
+            # Запускаем браузер с переданной ссылкой
+            command = 'xdg-open %s' % self.link
+            os.system(command)
+            print('Запустил:', command)
+
         else:
-            print('Операционная система %s не поддерживается' % your_os)
+            print('%s не поддерживается' % your_os)
 
     def click(self, latency=60):
         'Сколько секунд подождать перед запуском?'
