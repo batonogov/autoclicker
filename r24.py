@@ -20,6 +20,7 @@ class command:
             command = 'open %s' % self.link
             os.system(command)
             print('Запустил:', command)
+
         elif your_os == "win32":
             FirefoxPortable = 'FirefoxPortable/FirefoxPortable.exe'
 
@@ -31,6 +32,9 @@ class command:
 
             os.system(command)
             print('Запустил:', command)
+            
+        else:
+            print('Операционная система %s не поддерживается' % your_os)
 
     def click(self, latency):
         'Сколько секунд подождать перед запуском?'
