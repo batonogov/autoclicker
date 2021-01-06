@@ -19,8 +19,6 @@ class start:
         # Запускаем браузер с переданной ссылкой
         command = 'open %s' % self.link
         os.system(command)
-        # time.sleep(5)
-        # pyautogui.hotkey('ctrl', 'win', 'f')
         print('Запустил:', command)
 
     def win(self):
@@ -35,34 +33,6 @@ class start:
 
         os.system(command)
         print('Запустил:', command)
-
-# # Закрываем всплывающее окно восстановления
-# print('Ищу крестик')
-# if os.path.exists('cross.png') == True:
-#     cross = pyautogui.locateCenterOnScreen('cross.png')
-#     print('Файл cross.png на месте')
-#     if cross != None:
-#         print('Нашел крестик тут:', cross)
-#         pyautogui.moveTo (cross, duration = 0)
-#         pyautogui.click(button='left', clicks=1, interval=0.0)
-# else:
-#     print('Файл cross.png не найден!')
-
-# # Закрываем рекламу premium
-# print('Ищу кнопки')
-# if os.path.exists('premium_white.png') == True:
-#     premium = pyautogui.locateCenterOnScreen('premium_white.png')
-#     print('premium_white =', premium)
-#     if premium != None:
-#         pyautogui.moveTo (premium, duration = 0)
-#         pyautogui.click(button='left', clicks=1, interval=0.0)
-
-# if os.path.exists('premium_dark.png') == True:
-#     premium = pyautogui.locateCenterOnScreen('premium_dark.png')
-#     print('premium_dark =', premium)
-#     if premium != None:
-#         pyautogui.moveTo (premium, duration = 0)
-#         pyautogui.click(button='left', clicks=1, interval=0.0)
 
 def click():
     # Передвигаем курсор в нужное место
