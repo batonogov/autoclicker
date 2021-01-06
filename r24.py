@@ -6,7 +6,7 @@ class command:
     def __init__(self, link):
         self.link = link
 
-    def start(self, latency):
+    def start(self, latency=30):
         'Сколько секунд подождать перед запуском?'
         # Инфо об ОС 
         your_os = sys.platform
@@ -32,11 +32,11 @@ class command:
 
             os.system(command)
             print('Запустил:', command)
-            
+
         else:
             print('Операционная система %s не поддерживается' % your_os)
 
-    def click(self, latency):
+    def click(self, latency=60):
         'Сколько секунд подождать перед запуском?'
 
         # Получаем разрешение экрана
@@ -61,5 +61,5 @@ class command:
         pyautogui.press('up', presses=20)
 
 link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
-command(link).start(30)
-command(link).click(60)
+command(link).start()
+command(link).click()
