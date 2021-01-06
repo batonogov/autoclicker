@@ -6,11 +6,14 @@ class command:
     def __init__(self, link):
         self.link = link
 
-    def start(self):
-
+    def start(self, latency):
+        'Сколько секунд подождать перед запуском?'
         # Инфо об ОС 
         your_os = sys.platform
         print('Ваша ОС:', your_os)
+
+        print('Жду %s секунд' % latency)
+        time.sleep(latency)
 
         if your_os == "darwin":
             # Запускаем браузер с переданной ссылкой
@@ -29,11 +32,15 @@ class command:
             os.system(command)
             print('Запустил:', command)
 
-    def click(self):
+    def click(self, latency):
+        'Сколько секунд подождать перед запуском?'
 
         # Получаем разрешение экрана
         screen = pyautogui.size()
         print('Экран:', screen)
+
+        print('Жду %s секунд' % latency)
+        time.sleep(latency)
 
         # Передвигаем курсор в нужное место
         x1, y1 = screen[0] / 4, screen[1] / 4
@@ -50,5 +57,5 @@ class command:
         pyautogui.press('up', presses=20)
 
 link = 'https://www.youtube.com/watch?v=8T9SFZDP60Q'
-command(link).start()
-command(link).click()
+command(link).start(30)
+command(link).click(60)
