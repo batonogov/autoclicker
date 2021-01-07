@@ -14,8 +14,8 @@ class command:
     def __init__(self, link):
         self.link = link
 
-    def start(self, latency=30):
-        'Сколько секунд подождать перед запуском?'
+    def start(self, latency=0):
+        'Сколько секунд подождать перед запуском? По умолчанию 0 секунд.'
 
         while latency > 0:
             print('Осталось %s секунд' % latency)
@@ -49,8 +49,8 @@ class command:
         else:
             print('%s не поддерживается' % your_os)
 
-    def click(self, latency=60):
-        'Сколько секунд подождать перед запуском?'
+    def click(self, latency=5):
+        'Сколько секунд подождать перед запуском?По умолчанию 5 секунд.'
 
         while latency > 0:
             print('Осталось %s секунд' % latency)
